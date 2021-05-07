@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from '../../app/redux-hooks';
 import {
   decrement,
   increment,
   incrementByAmount,
-  incrementAsync,
-  incrementIfOdd,
+  changeStatus,
   selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
 
 export function Counter() {
-  const count = useAppSelector(selectCount);
+  const { count, status } = useAppSelector(selectCount);
   const dispatch = useAppDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
 
@@ -28,7 +27,7 @@ export function Counter() {
         >
           -
         </button>
-        <span className={styles.value}>{count}</span>
+        <span className={styles.value}>Count: {count}</span>
         <button
           className={styles.button}
           aria-label="Increment value"
@@ -37,6 +36,7 @@ export function Counter() {
           +
         </button>
       </div>
+      <span className={styles.value}>Status: {status}</span>
       <div className={styles.row}>
         <input
           className={styles.textbox}
@@ -52,15 +52,9 @@ export function Counter() {
         </button>
         <button
           className={styles.asyncButton}
-          onClick={() => dispatch(incrementAsync(incrementValue))}
+          onClick={() => dispatch(changeStatus(Math.ceil(Math.random() * 3)))}
         >
-          Add Async
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => dispatch(incrementIfOdd(incrementValue))}
-        >
-          Add If Odd
+          Change status
         </button>
       </div>
     </div>

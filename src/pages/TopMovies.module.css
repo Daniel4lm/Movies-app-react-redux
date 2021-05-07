@@ -1,0 +1,212 @@
+
+.movieContainer {
+    padding: 1rem;
+}
+
+.movietvList {
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-template-rows: repeat(5, auto);
+    grid-gap: 20px 20px;
+    justify-content: center;
+    align-content: center;
+    width: max-content;
+}
+
+.movieCard {
+    position: relative;
+    width: 200px;
+    height: 350px;
+    cursor: pointer;
+    transition: all 0.15s;
+    animation: Card-rise 600ms ease-in-out;
+    /*border: 4px solid rgb(184, 184, 184);*/
+    /*border-radius: 0.8rem;*/
+}
+
+.cardTitle {
+    position: absolute;
+    top: 100%;
+    /*bottom: 0;*/
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, 0%);
+    text-align: center;      
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    opacity: 0;
+}
+
+.cardTitle span {
+    padding: 0.6rem 0.4rem ;
+}
+
+.cardTitle span hr {
+    border: none;
+    background: rgba(238, 238, 238, 0.6);
+    height: 1px;
+}
+
+.cardImage {
+    width:100%;
+    height:100%;
+    object-fit: fill;
+    display: block;
+    border-radius: 0.6rem;
+}
+
+.cover {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(88, 88, 88);
+    border-radius: 0.6rem;
+}
+
+.movieCard:hover .cover {
+    transition: .5s ease;
+    opacity: 0.7;
+    z-index: 2;
+}
+
+.movieCard:hover .cardImage{
+    transition: .5s ease;
+    opacity: 0.9;
+}
+
+.movieCard:hover .cardTitle{
+    transition: .5s ease;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 2;
+    animation: Title-rise forwards 400ms ease-in-out;
+}
+
+@keyframes Title-rise {
+    0% {        
+        opacity: 0;
+    }
+    50% {        
+        opacity: 0;
+    }
+    100% {        
+        opacity: 1;
+    }
+}
+
+.value {
+    font-size: 1.4em;
+    font-weight: 400;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 2px;
+}
+
+hr {
+    border: none;
+    background: rgba(111, 76, 182, 0.4);
+    height: 2px;
+}
+
+.button {
+    appearance: none;
+    background: none;
+    font-size: 32px;
+    padding-left: 12px;
+    padding-right: 12px;
+    outline: none;
+    border: 2px solid transparent;
+    color: rgb(112, 76, 182);
+    padding-bottom: 4px;
+    cursor: pointer;
+    background-color: rgba(112, 76, 182, 0.1);
+    border-radius: 2px;
+    transition: all 0.15s;
+}
+  
+.textbox {
+    font-size: 32px;
+    padding: 2px;
+    width: 64px;
+    text-align: center;
+    margin-right: 4px;
+}
+  
+.button:hover,
+.button:focus {
+    border: 2px solid rgba(112, 76, 182, 0.4);
+}
+  
+.button:active {
+    background-color: rgba(112, 76, 182, 0.2);
+}
+  
+.asyncButton {
+    composes: button;
+    position: relative;
+}
+  
+.asyncButton:after {
+    content: '';
+    background-color: rgba(112, 76, 182, 0.15);
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: width 1s linear, opacity 0.5s ease 1s;
+  }
+  
+.asyncButton:active:after {
+    width: 0%;
+    opacity: 1;
+    transition: 0s;
+  }
+  
+
+@media screen and (max-width: 1160px) {
+    .movietvList {
+        grid-template-columns: repeat(4, auto);
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .movietvList {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .movietvList {
+        grid-template-columns: auto auto;
+    }    
+}
+
+@media screen and (max-width: 360px) {
+    .movietvList {
+        grid-template-columns: auto;
+    }    
+}
+
+@media screen and (min-width: 360px) and (max-width: 470px) {
+    .movieCard {
+        width: 150px;
+        height: 200px;
+    }    
+}
+
+@keyframes Card-rise {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+}

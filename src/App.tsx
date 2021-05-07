@@ -1,58 +1,66 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { BsChevronDoubleDown } from "react-icons/bs";
+import Routes from "./routes/Routes";
+
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import styles from "./Style.module.css";
 import './App.css';
 
 function App() {
+
+  const moviesRef = useRef<HTMLDivElement>(null);
+
+  function handleScrollDown() {
+    moviesRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Welcome
+          </p>
+          <p>
+            <span>React </span>
+            <a
+              className="App-link"
+              href="https://redux.js.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Redux
+            </a>
+            <span> movie </span>
+            <a
+              className="App-link"
+              href="https://www.themoviedb.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              TMDB
+            </a>
+            <span> finder </span>
+          </p>
+
+          <button
+            className={styles.button}
+            aria-label="Decrement value"
+            onClick={() => handleScrollDown()}
           >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+            <span>Movies</span>
+            <BsChevronDoubleDown />
+          </button>
+
+        </header>
+
+        <Routes ref={moviesRef} />
+
+      </div>
+    </Router>
   );
-}
+} // onClick={() => dispatch(decrement())}
 
 export default App;
