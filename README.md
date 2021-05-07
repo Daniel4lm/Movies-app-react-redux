@@ -1,16 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+### Movies Finder App
 
-## Available Scripts
+#### Description
 
-In the project directory, you can run:
+Example project of the consumption of an TMDB movies API, using React.js, TypeScript, Redux, redux thunk. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-### `yarn start`
+### Dependencies
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ - Node.js environment 14+
+ - npm package manager/yarn manager 1.22+
+ - React 17+
+ - React redux 7.x+
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### For development
+
+    1. npm install
+    2. npm start
+
+
+### Available running scripts
+
+    In the project directory, you can run:
+
+  - ``` yarn start ``` or
+  - ``` npm run test ```
+
+    Runs the app in the development mode.<br />
+    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
 
 ### `yarn test`
 
