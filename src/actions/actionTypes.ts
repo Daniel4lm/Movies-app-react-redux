@@ -1,7 +1,8 @@
 
 const FETCH_MOVIES: string = 'FETCH_MOVIES';
 const FETCH_TOP_MOVIES: string = 'FETCH_TOP_MOVIES';
-const SELECT_MOVIE: string = 'FETCH_MOVIES';
+const SELECT_MOVIE: string = 'SELECT_MOVIE';
+const FETCH_MOVIE: string = 'FETCH_MOVIE';
 const FETCH_REQUEST: string = 'FETCH_REQUEST';
 const FETCH_ERROR: string = 'FETCH_ERROR';
 
@@ -9,6 +10,7 @@ export default {
     FETCH_MOVIES,
     FETCH_TOP_MOVIES,
     SELECT_MOVIE,
+    FETCH_MOVIE,
     FETCH_REQUEST,
     FETCH_ERROR
 }

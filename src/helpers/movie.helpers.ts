@@ -1,7 +1,7 @@
-import { MovieType } from "../dataType";
+import { MoviesType } from "../dataType";
 
 
-const updateMoviePictures = (movies: MovieType[], width: number = 300) => {
+const updateMoviePictures = (movies: MoviesType[], width: number = 300) => {
 
     return movies.map((movie) => {
         if (movie.backdrop_path !== 'null' && movie.poster_path !== 'null') {

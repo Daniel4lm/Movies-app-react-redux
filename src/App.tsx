@@ -12,7 +12,7 @@ function App() {
   const moviesRef = useRef<HTMLDivElement>(null);
 
   function handleScrollDown() {
-    moviesRef.current?.scrollIntoView({ behavior: 'smooth' })
+    moviesRef.current?.scrollIntoView({ behavior: 'smooth' });
   }
 
   return (
@@ -46,8 +46,9 @@ function App() {
           </p>
 
           <button
+            role='scroll'
             className={styles.button}
-            aria-label="Decrement value"
+            aria-label="Scroll down"
             onClick={() => handleScrollDown()}
           >
             <span>Movies</span>

@@ -22,16 +22,37 @@ Example project of the consumption of an TMDB movies API, using React.js, TypeSc
     In the project directory, you can run:
 
   - ``` yarn start ``` or
-  - ``` npm run test ```
+  - ``` npm run start ```
 
     Runs the app in the development mode.<br />
     Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
-### `yarn test`
+### For testing
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - ### Unit testing with React Testing Library(RTL) and Jest
+
+    By default, all tests monitored by Jest are located inside `__tests__` directory:
+
+      ``` <root_dir>/src/__tests___ ```
+    
+    Jest testing framework will automaticaly recongize any file with `.spec.js/ts` or `.test.js/ts`. 
+
+    Now, we can run tests by following commands:
+
+      ``` npm run test 
+          /* OR */
+          npm test 
+      ```
+    
+    Jest tests can be called fired in watch mode, which watches for file changes and runs tests accordingly.
+
+      ``` npm test -- --watch or yarn test --watch ```
+    
+    If we want to display individual test results with the test suite hierarchy(with names in *describe*, *it* and *test* blocks):
+
+      ``` yarn test --verbose or npm test -- --verbose ```
+
 
 ### `yarn build`
 

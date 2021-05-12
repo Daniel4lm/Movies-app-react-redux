@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { MovieType } from "../dataType";
+import { MoviesType } from "../dataType";
 import { Action, Dispatch } from "redux";
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import * as actionName from '../actions';
 import { SearchResponse, StoreType } from "../dataType";
@@ -14,7 +14,7 @@ const { REACT_APP_MOVIE_DB_API_KEY } = process.env;
 const topRatedUrl: string = `${MOVIE_DB_BASE_URL}/movie/top_rated?api_key=${REACT_APP_MOVIE_DB_API_KEY}&language=en-US`;
 
 interface StateTypes {
-    topMovies: MovieType[];
+    topMovies: MoviesType[];
     loading: boolean;
     errorMsg: string;
 }
@@ -28,11 +28,9 @@ type Props = StateTypes & DispatchTypes;
 const TopMovies = ({ topMovies, loading, errorMsg, loadTopMovies }: Props) => {
 
     /*const dispatch = useDispatch();
-
     useEffect(() => {
         dispatch(actionName.fetchTopMovies(topRatedUrl));
     }, [dispatch]);*/
-
 
     useEffect(() => {
         loadTopMovies(topRatedUrl);
@@ -77,21 +75,11 @@ const TopMovies = ({ topMovies, loading, errorMsg, loadTopMovies }: Props) => {
     );
 }
 
-/*
-<h4 className={styles.title}>{movie.title}</h4>
-                            <h6 className={styles.date}>({movie.release_date.substring(0, 4)})</h6>
-                            <p className={styles.overview}>{movie.overview}</p>
-*/
-
 const mapStateToProps = (state: StoreType) => ({
     topMovies: state.movies.topMovies,
     loading: state.movies.isLoading,
     errorMsg: state.movies.errorMessage
 });
-
-interface DispatchFromProps {
-    loadTopMovies: (rl: string) => void;
-}
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<SearchResponse, void, Action>) => ({
     loadTopMovies: (url: string) => dispatch(actionName.fetchTopMovies(url))
