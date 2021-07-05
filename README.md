@@ -2,6 +2,11 @@
 
 #### Description
 
+![image](https://user-images.githubusercontent.com/1280747/124474263-a2287b80-dda0-11eb-90be-9c8c4097b128.png)
+
+![image](https://user-images.githubusercontent.com/1280747/124474357-b7050f00-dda0-11eb-9f27-96bf11899631.png)
+
+
 Example project of the consumption of an TMDB movies API, using React.js, TypeScript, Redux, redux thunk. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ### Dependencies
